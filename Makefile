@@ -1,11 +1,11 @@
 .PHONY: all build run shell clean
 
-all: build run
+all: clean build run
 
 # Build Docker images
 build:
-	docker build -t image_backend ./image_backend
-	docker build -t image_processor ./image_processor
+	docker build -t image_backend ./backend
+	docker build -t image_processor ./processor
 
 # Run Docker containers
 run:
@@ -14,3 +14,7 @@ run:
 		-v $$HOME/Pictures/images/uploads:/app/uploads \
 		-v $$HOME/Pictures/images/processed:/app/processed \
 		image_processor
+
+clean:
+	docker rm -f backend_container processor_container || true
+	docker rmi -f image_backend image_processor || true
