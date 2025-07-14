@@ -9,9 +9,12 @@ build:
 
 # Run Docker containers
 run:
-	docker run -d --name backend_container -p 1234:8000 image_backend
+	docker run -d --name backend_container -p 1234:8000 image_backend \
+			-v $$HOME/Pictures/images/uploads:/app/upload \
+            -v $$HOME/Pictures/images/uploads:/app/backup \
+
 	docker run -d --name processor_container \
-		-v $$HOME/Pictures/images/uploads:/app/uploads \
+		-v $$HOME/Pictures/images/uploads:/app/upload \
 		-v $$HOME/Pictures/images/processed:/app/processed \
 		image_processor
 

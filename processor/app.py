@@ -31,7 +31,7 @@ def process_image(file_path: Path):
 if __name__ == '__main__':
     load_dotenv()
 
-    UPLOAD_DIR = Path("/app/uploads")
+    UPLOAD_DIR = Path("/app/upload")
     PROCESSED_DIR = Path("/app/processed")
 
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
