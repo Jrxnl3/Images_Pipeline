@@ -16,7 +16,7 @@ run:
 		image_backend
 
 	docker run -d --name processor_container \
-		-v $$HOME/Pictures/images/uploads:/app/upload \
+		-v $$HOME/Pictures/images/upload:/app/upload \
 		-v $$HOME/Pictures/images/processed:/app/processed \
 		image_processor
 
